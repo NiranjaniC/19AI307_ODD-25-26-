@@ -3,6 +3,7 @@
 ## QUESTION:
 
 
+
 ## AIM:
 To develop a Java program that accepts a user's name, age, and favorite number as input and displays them using different output methods such as print(), println(), and printf() with formatted output.
 
@@ -48,4 +49,5 @@ public class PrintStyles{
 
 
 ## RESULT:
+
 
