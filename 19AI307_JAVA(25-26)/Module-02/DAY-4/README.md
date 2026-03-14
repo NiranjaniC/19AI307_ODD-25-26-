@@ -1,105 +1,79 @@
-# Ex.No:2(C) ACCESS SPECIFIERS
+# Ex. No:2(D) VARIABLE SCOPE AND CONSTRUCTOR
 
 ## QUESTION:
 
-Write a Java program to create a class **Person** with private instance variables:
-
-* `name`
-* `age`
-* `country`
-
-Provide **public getter and setter methods** to access and modify these variables.
-Read user input for name, age, and country, set the values using setter methods, and display them using getter methods.
-
----
+<img width="795" height="191" alt="image" src="https://github.com/user-attachments/assets/6b7ab3ac-8e0a-4eae-bbd1-7cc4ac74282e" />
 
 ## AIM:
 
-To implement a Java program demonstrating the concept of **access specifiers**, specifically encapsulation, by using private variables with public getter and setter methods.
+To write a java program to create a class that uses a constructor to initialize variables and overrides toString() method.
 
----
+
 
 ## ALGORITHM :
+1. Start the program and define a Student class with variables name and age.
 
-1. Start the program.
-2. Import the necessary package `java.util`.
-3. Create a class `Person` with private variables: name, age, and country.
-4. Provide public getter and setter methods for accessing and modifying the private variables.
-5. In the main method, read the user inputs for name, age, and country.
-6. Create a `Person` object and assign values using setter methods.
-7. Display the details using getter methods.
-8. End the program.
+2. Create a parameterized constructor to initialize the name and age of the student.
 
----
+3. Override the toString() method to return the student details in a formatted string.
+
+4. In the main method, read the student name and age from the user and create a Student object.
+
+5. Display the student details using the object and stop the program.
+
+
+
+
 
 ## PROGRAM:
-
-```
-/*
-Program to implement Access Specifiers using Java
+ ```
+Program to implement a Variable scope and Constructor using Java
 Developed by: Niranjani.C
-RegisterNumber: 212223220069
-*/
+RegisterNumber:  212223220069
 ```
-
----
 
 ## SOURCE CODE:
 
-```
-import java.util.*;
-public class Person {
-  
-    private String name;
-    private int age;
-    private String country;
-
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
+```java
+import java.util.Scanner;
+class Student
+{
+    String name;
+    int age;
+    
+    Student(String name,int age)
+    {
         this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-    public void setAge(int age) {
         this.age = age;
     }
-
-    public String getCountry() {
-        return country;
+    public String toString()
+    {
+        return "Student{name='"+name+"', age="+age+"}";
     }
-    public void setCountry(String country) {
-        this.country = country;
-    }
-    
-    public static void main(String args[]) {
+}
+public class main
+{
+    public static void main(String args[])
+    {
         Scanner sc = new Scanner(System.in);
         String name = sc.nextLine();
         int age = sc.nextInt();
-        sc.nextLine();
-        String country = sc.nextLine();
+        Student s1 = new Student(name,age);
+        System.out.println(s1);
         
-        Person obj = new Person();
-        obj.setName(name);
-        obj.setAge(age);
-        obj.setCountry(country);
-        
-        System.out.printf("Person 1 \nName: %s\nAge: %d\nCountry: %s", 
-                           obj.getName(), obj.getAge(), obj.getCountry());
     }
 }
 ```
 
----
+
+
+
 
 ## OUTPUT:
-<img width="747" height="437" alt="Screenshot 2025-11-24 at 1 27 11 PM" src="https://github.com/user-attachments/assets/b2b6d89a-6e24-4a2a-97aa-a84c52bde140" />
 
----
+<img width="783" height="293" alt="image" src="https://github.com/user-attachments/assets/af1a4f33-0b60-4648-bb48-8dc84f455c27" />
 
 ## RESULT:
 
-Thus, the Java program demonstrating access specifiers using getter and setter methods was successfully executed and verified.
+
+Thus, the java program to create a class that uses a constructor to initialize variables and overrides toString() method has been executed successfully.
