@@ -1,105 +1,111 @@
-# Ex.No:2(C) ACCESS SPECIFIERS
+# Ex.No:3(C) ABSTRACTION
 
 ## QUESTION:
 
-Write a Java program to create a class **Person** with private instance variables:
+Description:
 
-* `name`
-* `age`
-* `country`
+Create abstract class GameScore with method finalScore().
 
-Provide **public getter and setter methods** to access and modify these variables.
-Read user input for name, age, and country, set the values using setter methods, and display them using getter methods.
+Subclasses:
 
----
+ArcadeGame: score = baseScore + (level × 100)
+
+PuzzleGame: score = (attempts ≤ 3) ? 1000 - (attempts × 100) : 500
+
+Input Format:
+
+First line: 1 or 2
+Second line: base, level (or attempts)
+
+Output Format:
+
+Final score (int)
+
+
 
 ## AIM:
 
-To implement a Java program demonstrating the concept of **access specifiers**, specifically encapsulation, by using private variables with public getter and setter methods.
-
----
+To write a Java program using an abstract class GameScore with subclasses ArcadeGame and PuzzleGame, each implementing its own finalScore() method.
 
 ## ALGORITHM :
 
-1. Start the program.
-2. Import the necessary package `java.util`.
-3. Create a class `Person` with private variables: name, age, and country.
-4. Provide public getter and setter methods for accessing and modifying the private variables.
-5. In the main method, read the user inputs for name, age, and country.
-6. Create a `Person` object and assign values using setter methods.
-7. Display the details using getter methods.
-8. End the program.
+1.	Create an abstract class GameScore with an abstract method finalScore().
+2.	Define subclass ArcadeGame where finalScore = baseScore + (level × 100).
+3.	Define subclass PuzzleGame where
+4.	If attempts ≤ 3, score = 1000 - (attempts × 100)
+5.	Else score = 500.
+6.	Take user input for game type and relevant values.
+7.	Display the final score based on game type.
 
----
+
 
 ## PROGRAM:
-
-```
+ ```
 /*
-Program to implement Access Specifiers using Java
+Program to implement a Abstraction using Java
 Developed by: Niranjani.C
 RegisterNumber: 212223220069
 */
 ```
 
----
-
 ## SOURCE CODE:
 
 ```
 import java.util.*;
-public class Person {
-  
-    private String name;
-    private int age;
-    private String country;
 
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
+abstract class GameScore {
+    abstract int finalScore();
+}
 
-    public int getAge() {
-        return age;
+class ArcadeGame extends GameScore {
+    int base, level;
+    ArcadeGame(int base, int level) {
+        this.base = base;
+        this.level = level;
     }
-    public void setAge(int age) {
-        this.age = age;
+    int finalScore() {
+        return base + (level * 100);
     }
+}
 
-    public String getCountry() {
-        return country;
+class PuzzleGame extends GameScore {
+    int attempts;
+    PuzzleGame(int attempts) {
+        this.attempts = attempts;
     }
-    public void setCountry(String country) {
-        this.country = country;
+    int finalScore() {
+        if (attempts <= 3)
+            return 1000 - (attempts * 100);
+        else
+            return 500;
     }
-    
-    public static void main(String args[]) {
+}
+
+public class prog {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String name = sc.nextLine();
-        int age = sc.nextInt();
-        sc.nextLine();
-        String country = sc.nextLine();
-        
-        Person obj = new Person();
-        obj.setName(name);
-        obj.setAge(age);
-        obj.setCountry(country);
-        
-        System.out.printf("Person 1 \nName: %s\nAge: %d\nCountry: %s", 
-                           obj.getName(), obj.getAge(), obj.getCountry());
+        int type = sc.nextInt();
+        if (type == 1) {
+            int base = sc.nextInt();
+            int level = sc.nextInt();
+            ArcadeGame game = new ArcadeGame(base, level);
+            System.out.println(game.finalScore());
+        } else if (type == 2) {
+            int attempts = sc.nextInt();
+            PuzzleGame game = new PuzzleGame(attempts);
+            System.out.println(game.finalScore());
+        }
     }
 }
 ```
 
----
-
 ## OUTPUT:
-<img width="747" height="437" alt="Screenshot 2025-11-24 at 1 27 11 PM" src="https://github.com/user-attachments/assets/b2b6d89a-6e24-4a2a-97aa-a84c52bde140" />
 
----
+<img width="1147" height="386" alt="image" src="https://github.com/user-attachments/assets/4447ae81-3e1b-46a2-91a4-e2ad7316e6a6" />
 
 ## RESULT:
 
-Thus, the Java program demonstrating access specifiers using getter and setter methods was successfully executed and verified.
+The program successfully demonstrates abstraction and inheritance by computing the final score for different game types using subclass-specific logic.
+
+
+
